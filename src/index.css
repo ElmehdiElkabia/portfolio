@@ -197,3 +197,29 @@ All colors MUST be HSL.
   .delay-1500 { animation-delay: 1500ms; }
   .delay-2000 { animation-delay: 2000ms; }
 }
+
+/* Particles.js styling */
+.count-particles {
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13E8E9;
+  font-size: 0.8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  -webkit-user-select: none;
+  user-select: none;
+  margin-top: 5px;
+  margin-left: 5px;
+  border-radius: 0 0 3px 3px;
+}
+
+.js-count-particles {
+  font-size: 1.1em;
+}
