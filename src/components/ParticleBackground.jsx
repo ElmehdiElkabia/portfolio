@@ -2,13 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const ParticleBackground = () => {
     const [particleCount, setParticleCount] = useState(0);
-    const [isDarkMode, setIsDarkMode] = useState(() => {
-        // Initialize with current theme state to prevent mismatch
-        if (typeof window !== 'undefined') {
-            return document.documentElement.classList.contains('dark');
-        }
-        return false;
-    });
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
         const checkDarkMode = () => {
@@ -28,105 +22,99 @@ const ParticleBackground = () => {
     }, []);
 
     useEffect(() => {
-        const isMobile = window.innerWidth <= 768;
-        
-        // Small delay to ensure theme is properly set
-        const initializeParticles = () => {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
-            script.onload = () => {
-                if (window.particlesJS) {
-                    window.particlesJS("particles-js", {
-                        particles: {
-                            number: {
-                                value: isMobile ? 40 : 60,
-                                density: {
-                                    enable: true,
-                                    value_area: 1000
-                                }
-                            },
-                            color: {
-                                value: isDarkMode ? "#ffffff" : "#000000"
-                            },
-                            shape: {
-                                type: "circle",
-                                stroke: {
-                                    width: 0,
-                                    color: isDarkMode ? "#ffffff" : "#000000"
-                                }
-                            },
-                            opacity: {
-                                value: 0.5
-                            },
-                            size: {
-                                value: 3,
-                                random: true
-                            },
-                            line_linked: {
-                                enable: true,
-                                distance: 150,
-                                color: isDarkMode ? "#ffffff" : "#000000",
-                                opacity: 0.4,
-                                width: 1
-                            },
-                            move: {
-                                enable: true,
-                                speed: isMobile ? 1.5 : 3,
-                                direction: "none",
-                                out_mode: "out"
-                            }
-                        },
-                        interactivity: {
-                            detect_on: "canvas",
-                            events: {
-                                onhover: {
-                                    enable: !isMobile,
-                                    mode: "repulse"
-                                },
-                                onclick: {
-                                    enable: !isMobile,
-                                    mode: "push"
-                                },
-                                resize: true
-                            },
-                            modes: {
-                                repulse: {
-                                    distance: 100,
-                                    duration: 0.4
-                                },
-                                push: {
-                                    particles_nb: 2
-                                }
-                            }
-                        },
-                        retina_detect: true
-                    });
+        const width = window.innerWidth;
+        const isMobileOrTablet = width <= 1024;
 
-                    const updateCount = () => {
-                        if (window.pJSDom?.[0]?.pJS?.particles?.array) {
-                            setParticleCount(window.pJSDom[0].pJS.particles.array.length);
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js';
+        script.onload = () => {
+            if (window.particlesJS) {
+                window.particlesJS("particles-js", {
+                    particles: {
+                        number: {
+                            value: isMobileOrTablet ? 20 : 60,
+                            density: {
+                                enable: true,
+                                value_area: 1000
+                            }
+                        },
+                        color: {
+                            value: isDarkMode ? "#ffffff" : "#000000"
+                        },
+                        shape: {
+                            type: "circle",
+                            stroke: {
+                                width: 0,
+                                color: isDarkMode ? "#ffffff" : "#000000"
+                            }
+                        },
+                        opacity: {
+                            value: 0.5
+                        },
+                        size: {
+                            value: 3,
+                            random: true
+                        },
+                        line_linked: {
+                            enable: !isMobileOrTablet,
+                            distance: 150,
+                            color: isDarkMode ? "#ffffff" : "#000000",
+                            opacity: 0.4,
+                            width: 1
+                        },
+                        move: {
+                            enable: true,
+                            speed: isMobileOrTablet ? 1.5 : 3,
+                            direction: "none",
+                            out_mode: "out"
                         }
-                        requestAnimationFrame(updateCount);
-                    };
-                    updateCount();
-                }
-            };
+                    },
+                    interactivity: {
+                        detect_on: "canvas",
+                        events: {
+                            onhover: {
+                                enable: !isMobileOrTablet,
+                                mode: "repulse"
+                            },
+                            onclick: {
+                                enable: !isMobileOrTablet,
+                                mode: "push"
+                            },
+                            resize: true
+                        },
+                        modes: {
+                            repulse: {
+                                distance: 100,
+                                duration: 0.4
+                            },
+                            push: {
+                                particles_nb: 2
+                            }
+                        }
+                    },
+                    retina_detect: true
+                });
 
-            const existingScript = document.querySelector('script[src*="particles.min.js"]');
-            if (!existingScript) {
-                document.head.appendChild(script);
-            } else {
-                if (window.particlesJS) {
-                    script.onload();
-                }
+                const updateCount = () => {
+                    if (window.pJSDom?.[0]?.pJS?.particles?.array) {
+                        setParticleCount(window.pJSDom[0].pJS.particles.array.length);
+                    }
+                    requestAnimationFrame(updateCount);
+                };
+                updateCount();
             }
         };
 
-        // Initialize particles after a small delay to ensure theme is set
-        const timeoutId = setTimeout(initializeParticles, 50);
+        const existingScript = document.querySelector('script[src*="particles.min.js"]');
+        if (!existingScript) {
+            document.head.appendChild(script);
+        } else {
+            if (window.particlesJS) {
+                script.onload();
+            }
+        }
 
         return () => {
-            clearTimeout(timeoutId);
             if (window.pJSDom?.[0]) {
                 window.pJSDom[0].pJS.fn.vendors.destroypJS();
                 window.pJSDom = [];
