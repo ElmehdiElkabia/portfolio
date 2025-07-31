@@ -2,15 +2,64 @@ import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 
+// Cookie utility functions
+const setCookie = (name, value, days = 365) => {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+    document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+};
+
+const getCookie = (name) => {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+};
+
 const Navbar = () => {
-    const [isDark, setIsDark] = useState(false);
+    const [isDark, setIsDark] = useState(() => {
+        // Initialize with saved preference or system preference
+        if (typeof window !== 'undefined') {
+            const savedTheme = getCookie('theme-preference');
+            if (savedTheme !== null) {
+                const isDarkSaved = savedTheme === 'dark';
+                // Apply theme immediately to prevent flash
+                if (isDarkSaved) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                return isDarkSaved;
+            } else {
+                // Check system preference
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                // Apply theme immediately
+                if (prefersDark) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                // Save initial preference
+                setCookie('theme-preference', prefersDark ? 'dark' : 'light');
+                return prefersDark;
+            }
+        }
+        return false;
+    });
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
+        // Apply theme changes and save to cookies
         if (isDark) {
             document.documentElement.classList.add('dark');
+            setCookie('theme-preference', 'dark');
         } else {
             document.documentElement.classList.remove('dark');
+            setCookie('theme-preference', 'light');
         }
     }, [isDark]);
 
