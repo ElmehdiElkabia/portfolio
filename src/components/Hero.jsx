@@ -39,22 +39,22 @@ const Hero = () => {
                     {/* Animated role title */}
                     <div className="mb-6 animate-fade-in delay-500">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-foreground flex items-center justify-center gap-3">
-                            <Zap className="h-8 w-8 text-yellow-500  delay-700" />
-                            Full-Stack Developer
-                            <Zap className="h-8 w-8 text-yellow-500  delay-1000" />
+                            <Zap className="h-8 w-8 text-yellow-500 delay-700" />
+                            Software Engineer | Full-Stack Developer
+                            <Zap className="h-8 w-8 text-yellow-500 delay-1000" />
                         </h2>
                     </div>
 
-                    <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in delay-700">
-                        With expertise in React, Laravel, and modern web technologies.
-                        Passionate about creating efficient, scalable solutions.
+                    <p className="text-xl sm:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto animate-fade-in delay-700 leading-relaxed">
+                        Building scalable web applications and reliable software systems with modern full-stack technologies,
+                        C/C++, networking, and DevOps. Passionate about solving complex problems and turning ideas into real products.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in delay-1000">
                         <Button
                             onClick={scrollToProjects}
                             size="lg"
-                            className="hover:scale-110   hover:shadow-xl hover:shadow-blue-500/25  hover:animate-none group"
+                            className="hover:scale-110 hover:shadow-xl hover:shadow-blue-500/25 hover:animate-none group"
                         >
                             <span className="group-hover:animate-bounce">View My Work</span>
                         </Button>
