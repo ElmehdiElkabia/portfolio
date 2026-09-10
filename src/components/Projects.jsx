@@ -24,7 +24,7 @@ const Projects = () => {
             technologies: ["React", "Vite", "Laravel", "MySQL", "Redis", "Docker", "Nginx"],
             category: "Full-Stack Web App",
             github: "https://github.com/ElmehdiElkabia/EventFlow",
-            demo: null
+            demo: "https://event-flow-gamma-kohl.vercel.app/"
         },
         {
             title: "Webserv",
