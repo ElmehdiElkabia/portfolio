@@ -1,40 +1,45 @@
-
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Palette, Settings, Database, Code, Wrench, Sparkles } from 'lucide-react';
+import { Palette, Server, Database, Code, Wrench, Cloud, Sparkles } from 'lucide-react';
 
 const Skills = () => {
     const skillCategories = [
         {
             title: "Frontend",
             icon: <Palette className="h-6 w-6 text-pink-500" />,
-            skills: ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"],
+            skills: ["React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Vite", "shadcn/ui"],
             color: "hover:shadow-pink-500/20"
         },
         {
             title: "Backend",
-            icon: <Settings className="h-6 w-6 text-blue-500" />,
-            skills: ["PHP Laravel", "Express.js", "RESTful APIs"],
+            icon: <Server className="h-6 w-6 text-blue-500" />,
+            skills: ["Laravel", "PHP", "Node.js", "Express.js", "REST APIs", "Sanctum", "WebSockets"],
             color: "hover:shadow-blue-500/20"
         },
         {
-            title: "Databases",
+            title: "Databases & Caching",
             icon: <Database className="h-6 w-6 text-green-500" />,
-            skills: ["MySQL", "MongoDB", "Database Design"],
+            skills: ["MySQL", "MongoDB", "Redis", "Database Design", "Eloquent ORM"],
             color: "hover:shadow-green-500/20"
         },
         {
-            title: "Systems Programming",
+            title: "Systems & Networking",
             icon: <Code className="h-6 w-6 text-orange-500" />,
-            skills: ["C", "C++", "Data Structures", "Algorithms"],
+            skills: ["C", "C++98", "Linux", "Unix", "Sockets", "TCP/IP", "HTTP", "Processes", "Threads", "Algorithms", "Data Structures"],
             color: "hover:shadow-orange-500/20"
         },
         {
-            title: "Tools & Others",
-            icon: <Wrench className="h-6 w-6 text-purple-500" />,
-            skills: ["Git", "Linux", "Agile", "Problem Solving"],
+            title: "DevOps & Infrastructure",
+            icon: <Cloud className="h-6 w-6 text-purple-500" />,
+            skills: ["Docker", "Docker Compose", "Nginx", "Git", "GitHub", "TLS/HTTPS", "CI/CD"],
             color: "hover:shadow-purple-500/20"
+        },
+        {
+            title: "Engineering",
+            icon: <Wrench className="h-6 w-6 text-cyan-500" />,
+            skills: ["Object-Oriented Programming", "System Design", "API Design", "Problem Solving", "Debugging", "Memory Management", "Concurrency"],
+            color: "hover:shadow-cyan-500/20"
         }
     ];
 
@@ -49,12 +54,13 @@ const Skills = () => {
             <div className="container mx-auto relative z-10">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 animate-fade-in flex items-center justify-center gap-3">
-                        <Sparkles className="h-8 w-8 text-yellow-500 " />
+                        <Sparkles className="h-8 w-8 text-yellow-500" />
                         Skills & Technologies
-                        <Sparkles className="h-8 w-8 text-yellow-500  delay-500" />
+                        <Sparkles className="h-8 w-8 text-yellow-500 delay-500" />
                     </h2>
-                    <p className="text-lg text-muted-foreground max-w-2xl mx-auto animate-fade-in delay-300">
-                        A comprehensive toolkit for building modern web applications
+                    <p className="text-lg text-muted-foreground max-w-3xl mx-auto animate-fade-in delay-300">
+                        A practical toolkit built through full-stack development, systems programming, networking,
+                        DevOps, and software engineering projects.
                     </p>
                 </div>
 
@@ -67,7 +73,7 @@ const Skills = () => {
                         >
                             <CardHeader className="text-center">
                                 <CardTitle className="flex items-center justify-center gap-2 text-lg group-hover:animate-pulse">
-                                    <span className="" style={{ animationDelay: `${index * 100}ms` }}>
+                                    <span style={{ animationDelay: `${index * 100}ms` }}>
                                         {category.icon}
                                     </span>
                                     {category.title}
@@ -79,7 +85,7 @@ const Skills = () => {
                                         <Badge
                                             key={skill}
                                             variant="secondary"
-                                            className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default hover:scale-110 "
+                                            className="hover:bg-primary hover:text-primary-foreground transition-all duration-300 cursor-default hover:scale-110"
                                             style={{ animationDelay: `${skillIndex * 100}ms` }}
                                         >
                                             {skill}
@@ -95,16 +101,17 @@ const Skills = () => {
                     <Card className="max-w-2xl mx-auto hover:shadow-2xl transition-all duration-500 hover:scale-105 animate-fade-in delay-1000 hover:shadow-blue-500/20">
                         <CardContent className="pt-6">
                             <h3 className="text-xl font-semibold mb-4 flex items-center justify-center gap-2">
-                                <Sparkles className="h-5 w-5 text-blue-500 " />
+                                <Sparkles className="h-5 w-5 text-blue-500" />
                                 Currently Learning
                             </h3>
                             <p className="text-muted-foreground mb-4">
-                                Expanding my knowledge in systems programming and low-level development at 1337 coding school.
+                                Deepening my knowledge of C++, networking, system architecture, and advanced software engineering at 1337 Coding School.
                             </p>
-                            <div className="flex justify-center gap-2">
-                                <Badge variant="outline" className="hover:scale-110 transition-transform duration-200  delay-500">Advanced C</Badge>
-                                <Badge variant="outline" className="hover:scale-110 transition-transform duration-200  delay-700">C++</Badge>
-                                <Badge variant="outline" className="hover:scale-110 transition-transform duration-200  delay-1000">System Design</Badge>
+                            <div className="flex flex-wrap justify-center gap-2">
+                                <Badge variant="outline" className="hover:scale-110 transition-transform duration-200">C++</Badge>
+                                <Badge variant="outline" className="hover:scale-110 transition-transform duration-200">Networking</Badge>
+                                <Badge variant="outline" className="hover:scale-110 transition-transform duration-200">System Design</Badge>
+                                <Badge variant="outline" className="hover:scale-110 transition-transform duration-200">Software Engineering</Badge>
                             </div>
                         </CardContent>
                     </Card>
