@@ -14,13 +14,13 @@ const Skills = () => {
         {
             title: "Backend",
             icon: <Server className="h-6 w-6 text-blue-500" />,
-            skills: ["Laravel", "PHP", "Node.js", "Express.js", "REST APIs", "Sanctum", "WebSockets"],
+            skills: ["Laravel", "PHP", "Node.js", "Express.js", "REST APIs"],
             color: "hover:shadow-blue-500/20"
         },
         {
             title: "Databases & Caching",
             icon: <Database className="h-6 w-6 text-green-500" />,
-            skills: ["MySQL", "MongoDB", "Redis", "Database Design", "Eloquent ORM"],
+            skills: ["MySQL", "MongoDB", "Redis", "Database Design"],
             color: "hover:shadow-green-500/20"
         },
         {
@@ -32,13 +32,13 @@ const Skills = () => {
         {
             title: "DevOps & Infrastructure",
             icon: <Cloud className="h-6 w-6 text-purple-500" />,
-            skills: ["Docker", "Docker Compose", "Nginx", "Git", "GitHub", "TLS/HTTPS", "CI/CD"],
+            skills: ["Docker", "Docker Compose", "Nginx", "Git", "GitHub"],
             color: "hover:shadow-purple-500/20"
         },
         {
             title: "Engineering",
             icon: <Wrench className="h-6 w-6 text-cyan-500" />,
-            skills: ["Object-Oriented Programming", "System Design", "API Design", "Problem Solving", "Debugging", "Memory Management", "Concurrency"],
+            skills: ["Object-Oriented Programming", "System Design", "API Design", "Problem Solving", "Debugging", "Memory Management" ],
             color: "hover:shadow-cyan-500/20"
         }
     ];
