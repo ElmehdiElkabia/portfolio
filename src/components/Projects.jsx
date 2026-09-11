@@ -27,16 +27,6 @@ const Projects = () => {
             demo: "https://event-flow-gamma-kohl.vercel.app/"
         },
         {
-            title: "Webserv",
-            description:
-                "A custom HTTP server developed in C++98 to explore networking, sockets, HTTP request/response handling, configuration parsing, client connections, and server architecture.",
-            image: "🌐",
-            technologies: ["C++98", "Sockets", "HTTP", "Networking", "Linux"],
-            category: "Systems / Networking",
-            github: "https://github.com/ElmehdiElkabia/webserv",
-            demo: null
-        },
-        {
             title: "ft_irc",
             description:
                 "An IRC server project focused on socket programming, client-server communication, channels, authentication, messaging, and operator commands.",
