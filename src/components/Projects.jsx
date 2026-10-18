@@ -7,6 +7,36 @@ import { Github, ExternalLink } from 'lucide-react';
 const Projects = () => {
     const projects = [
         {
+            title: "Maison Saffron",
+            description:
+                "A premium Moroccan restaurant and café website concept with an editorial visual identity, responsive menu browsing, reservation enquiries, and WhatsApp contact flow.",
+            image: "🍽️",
+            technologies: ["Next.js", "TypeScript", "Tailwind CSS 4", "Lucide"],
+            category: "Restaurant / Commercial Demo",
+            github: "https://github.com/ElmehdiElkabia/maison-saffron",
+            demo: "https://maison-saffron.vercel.app/"
+        },
+        {
+            title: "Dar Noor Riad",
+            description:
+                "A boutique Moroccan riad website concept designed to showcase rooms, amenities, local experiences, property details, and WhatsApp-based reservation enquiries.",
+            image: "🕌",
+            technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+            category: "Hospitality / Commercial Demo",
+            github: "https://github.com/ElmehdiElkabia/dar-noor-riad",
+            demo: "https://dar-noor-riad.vercel.app/"
+        },
+        {
+            title: "Forge — Premium Fitness Club",
+            description:
+                "A bold, responsive fitness-club website concept with training programs, membership information, brand customization, and direct WhatsApp contact journeys.",
+            image: "🏋️",
+            technologies: ["Next.js", "TypeScript", "Tailwind CSS 4", "Framer Motion"],
+            category: "Fitness / Commercial Demo",
+            github: "https://github.com/ElmehdiElkabia/forge-gym-website",
+            demo: "https://forge-gym-website-one.vercel.app/"
+        },
+        {
             title: "Trivia Trap",
             description:
                 "A multiplayer trivia game focused on bluffing, voting, and real-time interaction. Designed with a modern gaming interface and built as a full-stack web experience.",
@@ -126,8 +156,8 @@ const Projects = () => {
                         Featured Projects
                     </h2>
                     <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                        A selection of my work across software engineering, systems programming,
-                        networking, DevOps, and full-stack development.
+                        A selection of my work across commercial website concepts, full-stack applications,
+                        systems programming, networking, and infrastructure.
                     </p>
                 </div>
 
