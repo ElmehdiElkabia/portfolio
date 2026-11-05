@@ -44,7 +44,7 @@ const Projects = () => {
             technologies: ["Next.js", "TypeScript", "Tailwind CSS", "WebSockets"],
             category: "Full-Stack Web App",
             github: "https://github.com/ElmehdiElkabia/trivia_trap",
-            demo: null
+            demo: "https://trivia-trap.duckdns.org/"
         },
         {
             title: "EventFlow Pro",
